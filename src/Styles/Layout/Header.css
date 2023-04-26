@@ -1,0 +1,19 @@
+.Header {
+    height: 80px;
+    width: 100%;
+    background: #007d4f00;
+    display: flex;
+    justify-content: center;
+}
+
+.Align-Header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Brand img {
+    height: 60px;
+}
