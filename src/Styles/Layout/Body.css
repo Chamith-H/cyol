@@ -214,3 +214,29 @@
 .Single-Solution img {
     width: 50px;
 }
+
+@media only screen and (min-width: 0px) and (max-width: 574px) {
+    .Font-Default h1 {
+        color: rgb(255, 255, 255);
+        font-size: 40px;
+        font-family:'RobotoBold';
+    }
+    
+    .Font-Default h5 {
+       color: rgba(255, 255, 255, 0.829);
+       font-family:'Roboto';
+       font-size: 21px;
+    }
+    
+    .Font-Scrolled h1{
+        color: rgba(255, 255, 255, 0.459);
+        font-size: 40px;
+        font-family:'RobotoBold';
+    }
+    
+    .Font-Scrolled h5 {
+        color: rgba(255, 255, 255, 0.377);
+       font-family:'Roboto';
+       font-size: 21px;
+    }
+}
