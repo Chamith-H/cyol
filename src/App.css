@@ -19,6 +19,12 @@
     min-height: 100%;
 }
 
+.Scrolled-Hero-Body {
+    background: #000000b7;
+    min-width: 100%;
+    min-height: 100%;
+}
+
 .Header-Margin {
     width: 100%;
     height: 40px;
