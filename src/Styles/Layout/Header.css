@@ -43,18 +43,16 @@
   height: 43px;
 }
 
-.Toggler-Menu-Mobile {
-  position: absolute;
-  height: 260px;
-  width: 100%;
-  background-color: #007D50;
-  bottom: -300px;
-}
-
+.Toggler-Menu-Mobile,
 .Toggler-Menu-Mobile-Scrolled {
   position: absolute;
   height: 260px;
   width: 100%;
   background-color: #007D50;
+  bottom: -300px;
+  transition: bottom 0.3s ease-out;
+}
+
+.Toggler-Menu-Mobile-Scrolled {
   bottom: -258px;
 }
