@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 
 const Header =()=> {
     const [scrolled, setScrolled] = useState(false);
+    const [togglerExpand, setTogglerExpand] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -27,7 +28,8 @@ const Header =()=> {
     }, []);
 
     return (
-        <div className={scrolled? 'Header Scrolled-Header sticky-top': 'Header sticky-top'}>
+      <div className="sticky-top">
+        <div className={scrolled? 'Header Scrolled-Header': 'Header'}>
             <div className="mx-4 mx-sm-5 px-lg-5 Align-Header">
                 <div className="Brand">
                     <img src={logo} alt="CYOL logo" />
@@ -38,10 +40,17 @@ const Header =()=> {
                 </div>
 
                 <div className="Toggler d-block d-md-none">
-                    <img src={toggler} alt="" />
+                    <img src={toggler} alt="" type="button" onClick={()=> setTogglerExpand(!togglerExpand)}/>
                 </div>
             </div>
+
+            {togglerExpand && (
+                <div className={scrolled?"Toggler-Menu-Mobile-Scrolled":"Toggler-Menu-Mobile"}>
+
+                </div>
+            )}
         </div>
+      </div>
     )
 }
 export default Header;
