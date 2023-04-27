@@ -42,8 +42,7 @@
     height: calc(100vh - 120px);
     max-height: calc(700px - 120px);
     display: flex;
-    flex-direction: column;
-    justify-content: end;
+    align-items: flex-end;
     padding-bottom: 60px;
 }
 
@@ -216,14 +215,6 @@
 }
 
 @media only screen and (min-width: 0px) and (max-width: 540px) {
-    .Hero-Section {
-        height: calc(100vh - 120px);
-        max-height: calc(700px - 120px);
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
-        padding-bottom: 60px;
-    }
     
     .Font-Default h1 {
         color: rgb(255, 255, 255);

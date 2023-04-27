@@ -139,11 +139,13 @@ const Body =( props )=> {
     return (
         <div className="Body">
             <div className={scrolled? "Hero-Section Font-Scrolled mx-5 px-lg-5":"Hero-Section Font-Default mx-5 px-lg-5"}>
-                <h1 className="text-center text-md-start"><strong>CREATE YOUR OWN LEGACY</strong></h1>
-                <h5 className="text-center text-md-start">Intelligent Farming and Provenance Solution</h5>
+                <div className="Align-Hero-Contents">
+                    <h1 className="text-center text-md-start"><strong>CREATE YOUR OWN LEGACY</strong></h1>
+                    <h5 className="text-center text-md-start">Intelligent Farming and Provenance Solution</h5>
 
-                <div className="Align-Hero-Button d-flex justify-content-center justify-content-md-start">
-                    <button>Book Now</button>
+                    <div className="Align-Hero-Button d-flex justify-content-center justify-content-md-start">
+                        <button>Book Now</button>
+                    </div>
                 </div>
             </div>
 
