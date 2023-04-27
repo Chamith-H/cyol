@@ -46,13 +46,13 @@
 .Toggler-Menu-Mobile,
 .Toggler-Menu-Mobile-Scrolled {
   position: absolute;
-  height: 260px;
+  height: 220px;
   width: 100%;
   background-color: #007D50;
-  bottom: -300px;
+  bottom: -260px;
   transition: bottom 0.3s ease-out;
 }
 
 .Toggler-Menu-Mobile-Scrolled {
-  bottom: -258px;
+  bottom: -218px;
 }
