@@ -1,34 +1,101 @@
+@font-face {
+    font-family: 'RobotoBold';
+    src: url('../../Assets/Fonts/Roboto-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'RobotoHead';
+    src: url('../../Assets/Fonts/Roboto-Black.ttf');
+}
+
+@font-face {
+    font-family: 'RobotoGeneral';
+    src: url('../../Assets/Fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../../Assets/Fonts/Roboto-Light.ttf');
+    font-weight:normal;
+    font-style: normal;
+}
+
+.Our-Clients h1, .About-CYOL h1, .Digital-Solutions h1 {
+    font-family: 'RobotoHead';
+    color: rgb(0, 0, 0);
+}
+
+.Our-Clients span, .About-CYOL span, .Digital-Solutions span{
+    color:  #007D50;
+}
+
+.Crop-Management h1 {
+    font-family: 'RobotoHead';
+    color: #000000;
+}
+
+.Crop-Management span {
+    color: #e4e4e4;
+}
+
 .Hero-Section {
-    height: calc(100vh - 80px);
-    max-height: calc(700px - 80px);
+    height: calc(100vh - 120px);
+    max-height: calc(700px - 120px);
     display: flex;
     flex-direction: column;
     justify-content: end;
-    padding-bottom: 50px;
+    padding-bottom: 60px;
 }
 
-.Hero-Section h1 {
+.Font-Default h1 {
     color: rgb(255, 255, 255);
-    font-size: 60px;
-    font-family:monospace;
+    font-size: 50px;
+    font-family:'RobotoBold';
 }
 
-.Hero-Section h5 {
-   color: rgba(255, 255, 255, 0.808);
-   font-family:monospace;
+.Font-Default h5 {
+   color: rgba(255, 255, 255, 0.829);
+   font-family:'Roboto';
    font-size: 25px;
 }
 
+.Font-Scrolled h1{
+    color: rgba(255, 255, 255, 0.459);
+    font-size: 50px;
+    font-family:'RobotoBold';
+}
+
+.Font-Scrolled h5 {
+    color: rgba(255, 255, 255, 0.377);
+   font-family:'Roboto';
+   font-size: 25px;
+}
+
+.Align-Hero-Button {
+    width: 100%;
+}
+
 .Hero-Section button {
-    margin-top: 13px;
-    background: #ffffff18;
-    border-style:solid;
-    border-color: #ffff;
+    margin-top: 19px;
     width: 200px;
     height: 60px;
     border-radius: 80px;
     font-weight: 500;
+    
+}
+
+.Font-Default button {
+    background: #ffffff18;
+    border-style:solid;
+    border-color: #ffff;
     color: rgb(255, 255, 255);
+}
+
+.Font-Scrolled button {
+    background: #ffffff18;
+    border-style:solid;
+    border-color: #ffffff7a;
+    color: rgba(255, 255, 255, 0.493);
 }
 
 .Heading-Title {
@@ -45,38 +112,52 @@
 }
 
 .Single-Client {
-    box-shadow: 0px 8px 10px 0px #00000041;
+    box-shadow: 0px 8px 10px 0px #00000023;
 }
 
 .Our-Clients {
-    background: #e9e9e9;
+    background: #ececec;
 }
 
 .Client-Card-Image {
     background: #007D50;
 }
 
-.Client-Card-Image img {
+.Client-Single-Card img {
     width: 100%;
 }
+
+@keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
 .Client-Status{
     background: #ffff;
 }
 
-.Client-Status h5 {
-
+.Client-Status h5, .About-Card h5, .Single-Solution h5 {
+    font-family: 'RobotoBold';
+    font-size: 17px;
+    color: black;
 }
 
-.Client-Status p , .About-Card p{
+.Client-Status p , .About-Card p, .Single-Solution li{
     margin-bottom: 0;
-    font-size: 17px;
-    font-weight: 300;
+    font-size: 16px;
+   font-family: 'Roboto';
     color: black;
 }
 
 .About-Card img {
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .Crop-Management {
@@ -86,22 +167,25 @@
 }
 
 .Crop-Management-Cards {
-    margin-top: -190px;
+    margin-top: -210px;
 }
 
 .Align-Management-Card {
-    background: #0000008e;
+    background: #0000009d;
     height: 100%;
     display:flex;
     align-items: flex-end;
 }
 
 .Align-Management-Card h2 {
-    color: #ffffffbe;
+    font-family: 'RobotoGeneral';
+    color: #ffffffc5;
+    font-size: 33px;
 }
 
 .ViewData, .Management, .Planning {
     height: 450px;
+    box-shadow: 0px 5px 10px 0px #0000005d;
 }
 
 .Planning {

@@ -1,10 +1,16 @@
+@font-face {
+    font-family: 'RobotoNav';
+    src: url('../../Assets/Fonts/Roboto-Regular.ttf');
+}
+
 .Navlinks button{
     margin-left: 30px;
     border-style: none;
     background: #ffffff00;
     color: rgb(255, 255, 255);
+    font-family: 'RobotoNav';
     font-weight: 500;
     font-size: 17px;
-    padding-top: 1px;
+    padding-bottom: 0px;
     padding-right: 0px;
 }

@@ -10,7 +10,13 @@ import About3 from "../../Assets/Images/About3.jpg"
 
 import Point from "../../Assets/Icons/Management_Point.jpg"
 
+import { useRef, useEffect, useState } from "react"
+
 const Body =( props )=> {
+    const animate_1 = useRef(null)
+    const [scrolled, setScrolled] = useState(false);
+
+    
 
     const clients = [
                         {
@@ -113,24 +119,43 @@ const Body =( props )=> {
                             }
                           ]
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.pageYOffset > 150) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+                          
+        window.addEventListener('scroll', handleScroll);
+                          
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+                          
+    }, []);
+
     return (
         <div className="Body">
-            <div className="Hero-Section mx-5 px-5">
-                <h1>Create Your Own Legacy</h1>
-                <h5>Intelligent Farming and Provenance Solution</h5>
+            <div className={scrolled? "Hero-Section Font-Scrolled mx-5 px-lg-5":"Hero-Section Font-Default mx-5 px-lg-5"}>
+                <h1 className="text-center text-md-start px-3 px-md-0"><strong>CREATE YOUR OWN LEGACY</strong></h1>
+                <h5 className="text-center text-md-start px-5 px-md-0">Intelligent Farming and Provenance Solution</h5>
 
-                <button>Book Now</button>
+                <div className="Align-Hero-Button d-flex justify-content-center justify-content-md-start">
+                    <button>Book Now</button>
+                </div>
             </div>
 
             <div className="Body-Contents">
                 <div className="Our-Clients py-5">
-                    <div className="px-5 mx-5 Align-Section">
+                    <div className="px-lg-5 mx-4 mx-sm-5 Align-Section">
                         <h1 className="text-center Heading-Title">OUR <span>CLIENTS</span></h1>
 
                         <div className="Client-Cards">
-                            <div className="row g-4">
+                            <div className="row gx-4 gy-5 Client-Single-Card" ref={animate_1}>
                                 {clients.map((client) => (
-                                    <div className="col-4">
+                                    <div className="col-md-4">
                                         <div className="Single-Client">
                                             <div className="Client-Card-Image py-5">
                                                 <img src={client.image} alt="" />
@@ -149,13 +174,13 @@ const Body =( props )=> {
                 </div>
 
                 <div className="About-CYOL py-5">
-                    <div className="px-5 mx-5 Align-Section">
-                        <h1 className="text-center Heading-Title">ABOUT <span>CYOL</span></h1>
+                    <div className="px-lg-5 mx-4 mx-sm-5 Align-Section">
+                        <h1 className="text-center Heading-Title"><strong>ABOUT <span>CYOL</span></strong></h1>
 
                         <div className="About-Cards">
-                            <div className="row g-4">
+                            <div className="row gx-4 gy-5">
                                 {abouts.map((about) => (
-                                    <div className="col-4">
+                                    <div className="col-md-4">
                                         <div className="About-Card">
                                             <img src={about.image} alt="" />
                                             <h5>{about.title}</h5>
@@ -169,18 +194,18 @@ const Body =( props )=> {
                 </div>
 
                 <div className="Crop-Management">
-                    <div className="px-5 mx-5">
-                        <h1 className="text-center px-5">FULLY INTEGRATED <span>FARM FIELD</span> AND CROP MANAGEMENT</h1>
+                    <div className="px-lg-5 mx-4 mx-sm-5">
+                        <h1 className="text-center px-sm-5">FULLY INTEGRATED <span>FARM FIELD</span> AND CROP MANAGEMENT</h1>
                     </div>
                 </div>
 
                 <div className="Crop-Management-Cards">
-                    <div className="px-5 mx-5">
-                        <div className="row g-4">
+                    <div className="px-lg-5 mx-4 mx-sm-5">
+                        <div className="row gx-4 gy-5">
                             {managements.map((management) => (
-                                <div className="col-4">
+                                <div className="col-md-4">
                                     <div className={management.class}>
-                                        <div className="Align-Management-Card px-5">
+                                        <div className="Align-Management-Card ps-4 pe-5 pb-3">
                                             <h2>{management.title}</h2>
                                         </div>
                                     </div>
@@ -191,12 +216,12 @@ const Body =( props )=> {
                 </div>
 
                 <div className="Digital-Solutions">
-                    <div className="px-5 mx-5">
+                    <div className="px-lg-5 mx-4 mx-sm-5">
                         <h1 className="text-center Heading-Title">COMPLETE <span>DIGITAL SOLUTION</span> FOR EVERY FARM</h1>
 
-                        <div className="row gx-4 gy-5">
+                        <div className="row gx-4 gy-5 pt-4">
                             {solutions.map((solution) => (
-                                <div className="col-6">
+                                <div className="col-sm-6">
                                     <div className="Single-Solution">
                                         <img className="mb-3" src={Point} alt="" />
                                         <h5 className="ms-2">{solution.title}</h5>
