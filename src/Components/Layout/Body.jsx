@@ -144,7 +144,7 @@ const Body =( props )=> {
                     <h5 className="text-center text-md-start">Intelligent Farming and Provenance Solution</h5>
 
                     <div className="Align-Hero-Button d-flex justify-content-center justify-content-md-start">
-                        <button>Book Now</button>
+                        <button><strong>Book Now</strong></button>
                     </div>
                 </div>
             </div>

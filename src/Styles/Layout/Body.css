@@ -78,9 +78,8 @@
     margin-top: 19px;
     width: 200px;
     height: 60px;
-    border-radius: 80px;
-    font-weight: 500;
-    
+    border-radius: 80px;  
+    font-size: 17px;
 }
 
 .Font-Default button {

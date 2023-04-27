@@ -36,7 +36,7 @@ const Footer =()=> {
                     </div>
 
                     <div className="col-12 Footer-End mt-5">
-                        <p>Copyright &copy; 2023 AVS. All Rights Reserved</p>
+                        <p className="text-center text-md-start">Copyright &copy; 2023 AVS. All Rights Reserved</p>
                 
 
                         <div className="Social-Icons d-flex pb-3 pb-md-0">
