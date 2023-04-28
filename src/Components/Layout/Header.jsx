@@ -3,12 +3,14 @@ import logo from "../../Assets/Logos/cyol_logo.png";
 import toggler from "../../Assets/Icons/Toggler.png"
 import Navlinks from "../Reused/Navlinks";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 
 const Header =( props )=> {
     const [scrolled, setScrolled] = useState(false);
     const [togglerExpand, setTogglerExpand] = useState(false);
+
+    const ref = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -27,12 +29,27 @@ const Header =( props )=> {
     
     }, []);
 
-    const section_Finder =( selected )=> {
-        props.scroll_Wanted(selected)
+    const section_Finder =async( selected )=> {
+        await props.scroll_Wanted(selected)
+        setTogglerExpand(false)
     }
 
+    const handle_ClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setTogglerExpand(false);
+      };
+    };
+
+    useEffect(() => {
+      document.addEventListener("mousedown", handle_ClickOutside);
+
+      return () => {
+        document.removeEventListener("mousedown", handle_ClickOutside);
+      };
+    });
+
     return (
-      <div className="sticky-top">
+      <div className="sticky-top" ref={ref} >
         <div className={scrolled? 'Header Scrolled-Header': 'Header'}>
             <div className="mx-4 mx-sm-5 px-lg-5 Align-Header">
                 <div className="Brand">
