@@ -73,3 +73,9 @@
   height: 100%;
   transition: height 0.5s ease-in-out; 
 }
+
+.Mobile-Navigations {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}

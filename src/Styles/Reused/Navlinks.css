@@ -4,13 +4,21 @@
 }
 
 .Navlinks button{
-    margin-left: 30px;
     border-style: none;
-    background: #ffffff00;
+    background: #00000000;
     color: rgb(255, 255, 255);
     font-family: 'RobotoNav';
     font-weight: 500;
     font-size: 17px;
     padding-bottom: 0px;
     padding-right: 0px;
+    text-align: start;
+    padding-left: 0;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+    .Navlinks button{
+        margin-top: 6px;
+        margin-bottom: 6px;
+    }
 }
