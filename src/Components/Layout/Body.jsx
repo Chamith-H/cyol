@@ -139,7 +139,7 @@ const Body =( props )=> {
     useEffect(() => {
         const handleScroll = () => {
           if (animate_Clients.current) {
-            const { top, bottom } = animate_Clients.current.getBoundingClientRect();
+            const { top} = animate_Clients.current.getBoundingClientRect();
             const isVisible = top < window.innerHeight-80;
     
             if (isVisible) {
