@@ -47,7 +47,7 @@ const Header =()=> {
             
                 <div className={scrolled?"Toggler-Menu-Mobile-Scrolled d-md-none":"Toggler-Menu-Mobile d-md-none"}>
                     <div className={togglerExpand? "Expanded Toggler-Content":"Collapsed Toggler-Content"}>
-                        <div className="px-4 px-sm-5 Mobile-Navigations">
+                        <div className={togglerExpand?"px-4 px-sm-5 Mobile-Navigations Show-Links":"px-4 px-sm-5 Mobile-Navigations Hide-Links"}>
                           <Navlinks/>
                         </div>
                     </div>

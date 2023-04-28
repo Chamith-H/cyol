@@ -79,3 +79,13 @@
   display: flex;
   align-items: center;
 }
+
+.Hide-Links {
+  margin-left: -150px;
+  transition: margin-left 0.7s ease-in-out; 
+}
+
+.Show-Links {
+  margin-left: 0;
+  transition: margin-left 0.7s ease-in-out; 
+}
