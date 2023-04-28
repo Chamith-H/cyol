@@ -39,7 +39,7 @@
   height: 40px;
 }
 
-.Toggler img:hover {
+.Toggler img:active {
   height: 43px;
 }
 
