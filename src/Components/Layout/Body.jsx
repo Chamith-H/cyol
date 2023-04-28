@@ -13,10 +13,10 @@ import Point from "../../Assets/Icons/Management_Point.jpg"
 import { useRef, useEffect, useState } from "react"
 
 const Body =( props )=> {
-    const animate_1 = useRef(null)
+    const animate_Clients = useRef(null)
     const [scrolled, setScrolled] = useState(false);
 
-    
+    const [show_Clients, setShow_Clients] = useState(false)
 
     const clients = [
                         {
@@ -136,6 +136,27 @@ const Body =( props )=> {
                           
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+          if (animate_Clients.current) {
+            const { top, bottom } = animate_Clients.current.getBoundingClientRect();
+            const isVisible = top < window.innerHeight-80;
+    
+            if (isVisible) {
+              setShow_Clients(true)
+            }
+          }
+        };
+    
+        // Listen to the window's scroll event
+        window.addEventListener("scroll", handleScroll);
+    
+        // Cleanup the event listener when the component unmounts
+        return () => {
+          window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     return (
         <div className="Body">
             <div className={scrolled? "Hero-Section Font-Scrolled mx-5 px-lg-5":"Hero-Section Font-Default mx-5 px-lg-5"}>
@@ -155,15 +176,15 @@ const Body =( props )=> {
                         <h1 className="text-center Heading-Title">OUR <span>CLIENTS</span></h1>
 
                         <div className="Client-Cards">
-                            <div className="row gx-4 gy-5 Client-Single-Card" ref={animate_1}>
+                            <div className="row gx-4 gy-5 Client-Single-Card">
                                 {clients.map((client) => (
                                     <div className="col-md-4">
-                                        <div className="Single-Client">
+                                        <div className="Single-Client bg-white">
                                             <div className="Client-Card-Image py-5">
                                                 <img src={client.image} alt="" />
                                             </div>
 
-                                            <div className="Client-Status px-4 py-4">
+                                            <div className={show_Clients?"Client-Status Animate_Clients px-4 py-4":"Client-Status Default_Clients px-4 py-4"} ref={animate_Clients}>
                                                 <h5>{client.title}</h5>
                                                 <p>{client.description}</p>
                                             </div>

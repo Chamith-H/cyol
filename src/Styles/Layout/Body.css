@@ -160,6 +160,18 @@
     color: black;
 }
 
+.Default_Clients h5, .Default_Clients p{
+    margin-top: 30px;
+    color: #00000018;
+    transition: margin-top 1s ease-in-out, color 1s ease-in-out;
+}
+
+.Animate_Clients h5, .Animate_Clients p{
+    margin-top: 0px;
+    color: rgb(0, 0, 0);
+    transition: margin-top 1s ease-in-out, color 1s ease-in-out;
+}
+
 .About-Card img {
     width: 100%;
     margin-bottom: 20px;
