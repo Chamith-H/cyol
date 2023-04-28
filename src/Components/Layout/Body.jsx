@@ -13,25 +13,30 @@ import Point from "../../Assets/Icons/Management_Point.jpg"
 import { useRef, useEffect, useState } from "react"
 
 const Body =( props )=> {
-    const animate_Clients = useRef(null)
     const [scrolled, setScrolled] = useState(false);
 
-    const [show_Clients, setShow_Clients] = useState(false)
+    const animate_Client_1 = useRef(null)
+    const animate_Client_2 = useRef(null)
+    const animate_Client_3 = useRef(null)
+    const [show_Clients, setShow_Clients] = useState([false, false, false])
 
     const clients = [
                         {
+                            ref:animate_Client_1,
                             title:'Farms',
                             image:Farm1,
                             description:'Empowering professional crop farmers with small to mid sized productioin'
                         },
 
                         {
+                            ref:animate_Client_2,
                             title:'Enterprise Farms',
                             image:Farm2,
                             description:'Digitize Agri business companies with large and complex operations'
                         },
 
                         {
+                            ref:animate_Client_3,
                             title:'Cooperative',
                             image:Farm3,
                             description:'Collaboratioin with farms in a cooperative to manage contracting transparently.'
@@ -138,20 +143,38 @@ const Body =( props )=> {
 
     useEffect(() => {
         const handleScroll = () => {
-          if (animate_Clients.current) {
-            const { top} = animate_Clients.current.getBoundingClientRect();
-            const isVisible = top < window.innerHeight-80;
-    
-            if (isVisible) {
-              setShow_Clients(true)
-            }
-          }
+           
+                if (animate_Client_1.current) {
+                    const { top} = animate_Client_1.current.getBoundingClientRect();
+                    const isVisible = top < window.innerHeight-80;
+            
+                    if (isVisible) {
+                      setShow_Clients([true, false, false])
+                    }
+                }
+
+                if (animate_Client_2.current) {
+                    const { top} = animate_Client_2.current.getBoundingClientRect();
+                    const isVisible = top < window.innerHeight-80;
+            
+                    if (isVisible) {
+                      setShow_Clients([true, true, false])
+                    }
+                }
+
+                if (animate_Client_3.current) {
+                    const { top} = animate_Client_3.current.getBoundingClientRect();
+                    const isVisible = top < window.innerHeight-80;
+            
+                    if (isVisible) {
+                      setShow_Clients([true, true, true])
+                    }
+                }
+            
         };
     
-        // Listen to the window's scroll event
         window.addEventListener("scroll", handleScroll);
     
-        // Cleanup the event listener when the component unmounts
         return () => {
           window.removeEventListener("scroll", handleScroll);
         };
@@ -177,14 +200,14 @@ const Body =( props )=> {
 
                         <div className="Client-Cards">
                             <div className="row gx-4 gy-5 Client-Single-Card">
-                                {clients.map((client) => (
-                                    <div className="col-md-4">
+                                {clients.map((client, index) => (
+                                    <div className="col-md-4" key={index}>
                                         <div className="Single-Client bg-white">
                                             <div className="Client-Card-Image py-5">
                                                 <img src={client.image} alt="" />
                                             </div>
 
-                                            <div className={show_Clients?"Client-Status Animate_Clients px-4 py-4":"Client-Status Default_Clients px-4 py-4"} ref={animate_Clients}>
+                                            <div className={show_Clients[index]?"Client-Status Animate_Clients px-4 py-4":"Client-Status Default_Clients px-4 py-4"} ref={client.ref}>
                                                 <h5>{client.title}</h5>
                                                 <p>{client.description}</p>
                                             </div>
