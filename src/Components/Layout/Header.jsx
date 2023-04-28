@@ -44,11 +44,13 @@ const Header =()=> {
                 </div>
             </div>
 
-            {togglerExpand && (
+            
                 <div className={scrolled?"Toggler-Menu-Mobile-Scrolled":"Toggler-Menu-Mobile"}>
+                    <div className={togglerExpand? "Expanded Toggler-Content":"Collapsed Toggler-Content"}>
 
+                    </div>
                 </div>
-            )}
+            
         </div>
       </div>
     )
