@@ -82,6 +82,13 @@
     font-size: 17px;
 }
 
+.Hero-Section button:hover {
+    background: #ffffff;
+    border-style:solid;
+    border-color: #ffffff;
+    color: rgb(29, 29, 29);
+}
+
 .Font-Default button {
     background: #ffffff18;
     border-style:solid;

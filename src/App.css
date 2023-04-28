@@ -13,12 +13,14 @@
     background: #00000080;
     min-width: 100%;
     min-height: 100%;
+    transition: background 0.5s ease-in-out;
 }
 
 .Scrolled-Hero-Body {
-    background: #000000b7;
+    background: #000000c0;
     min-width: 100%;
     min-height: 100%;
+    transition: background 0.5s ease-in-out;
 }
 
 .Header-Margin {
