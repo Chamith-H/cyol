@@ -3,6 +3,12 @@
     src: url('../../Assets/Fonts/Roboto-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'RobotoBold';
+    src: url('../../Assets/Fonts/Roboto-Medium.ttf');
+}
+
+
 .Navlinks button{
     position: relative;
     border-style: none;
@@ -33,10 +39,15 @@
     transition-delay: 0.1s;
 }
 
+.Navlinks button:active {
+    color: #F5A22E;
+}
+
 @media only screen and (min-width: 0px) and (max-width: 768px) {
     .Navlinks button{
-        margin-top: 6px;
-        margin-bottom: 6px;
+        margin-top: 7px;
+        margin-bottom: 7px;
+        font-family: 'RobotoBold';
     }
 }
 

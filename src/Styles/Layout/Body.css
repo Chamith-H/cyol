@@ -20,6 +20,11 @@
     font-style: normal;
 }
 
+.About-CYOL {
+    padding-top: 60px;
+    padding-bottom: 45px;
+}
+
 .Our-Clients h1, .About-CYOL h1, .Digital-Solutions h1 {
     font-family: 'RobotoHead';
     color: rgb(0, 0, 0);
@@ -116,10 +121,6 @@
     background: #ffff;
 }
 
-.Single-Client {
-    box-shadow: 0px 8px 10px 0px #00000023;
-}
-
 .Our-Clients {
     background: #ececec;
 }
@@ -130,6 +131,15 @@
 
 .Client-Single-Card img {
     width: 100%;
+    transition: transform 0.7s;
+}
+
+.Farm-Clients, .Enterprise-Clients, .Cooperative-Clients {
+    box-shadow: 0px 12px 10px 0px #00000017;
+}
+
+.Farm-Clients:hover img, .Enterprise-Clients:hover img, .Cooperative-Clients:hover img {
+    transform: scale(1.13);
 }
 
 @keyframes slideIn {
@@ -175,6 +185,12 @@
 .About-Card img {
     width: 100%;
     margin-bottom: 20px;
+    transition: transform 0.5s;
+}
+
+.About-Card:hover img {
+    transform: scale(1.06);
+    overflow: hidden;
 }
 
 .Crop-Management {
@@ -246,7 +262,7 @@
 }
   
 .Planning:hover::before, .Management:hover::before, .ViewData:hover::before {
-    transform: scale(1.5);
+    transform: scale(1.4);
 }
 
 .Align-Management-Card h2 {

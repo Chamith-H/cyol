@@ -4,43 +4,56 @@ import Body from './Components/Layout/Body';
 import Footer from './Components/Layout/Footer';
 import { animateScroll as scroll } from 'react-scroll';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
-  function scrollToTop() {
-    scroll.scrollToTop({ duration: 500, smooth: true });
+  const pageTop = useRef(null)
+
+  const [scrollSection, setScrollSection] = useState('')
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 150) {
+          setScrolled(true);
+      } else {
+          setScrolled(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    };
+    
+  }, []);
+
+  useEffect(() => {
+    function handleScroll() {
+      setScrollY(window.scrollY);
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const zoomLevel = scrollY * 0.0007; 
+  const transformStyle = `scale(${1 + zoomLevel})`;
+
+  const identity_Scroller =async( selected )=> {
+    await setScrollSection(selected)
+    setScrollSection('')
   }
 
-    useEffect(() => {
-        const handleScroll = () => {
-          if (window.pageYOffset > 150) {
-            setScrolled(true);
-          } else {
-            setScrolled(false);
-          }
-        };
-    
-        window.addEventListener('scroll', handleScroll);
-    
-        return () => {
-          window.removeEventListener('scroll', handleScroll);
-        };
-    
-    }, []);
+  useEffect(() => {
+    if(scrollSection == 'home') {
+      pageTop.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 
-    useEffect(() => {
-      function handleScroll() {
-        setScrollY(window.scrollY);
-      }
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    const zoomLevel = scrollY * 0.0007; // adjust this value to control the zoom level
-  const transformStyle = `scale(${1 + zoomLevel})`;
+  }, [scrollSection]);
 
   return (
     <div className="App">
@@ -48,10 +61,10 @@ function App() {
           <div className={scrolled?"Scrolled-Hero-Body":"Align-Hero"}/>
       </div>
 
-      <div className="Header-Margin"/>
+      <div className="Header-Margin" ref={pageTop}/>
 
-      <Header/>
-      <Body/>
+      <Header scroll_Wanted={identity_Scroller}/>
+      <Body Section={scrollSection}/>
       <Footer/>
     </div>
   );

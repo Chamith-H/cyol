@@ -20,10 +20,15 @@ const Body =( props )=> {
     const animate_Client_3 = useRef(null)
     const [show_Clients, setShow_Clients] = useState([false, false, false])
 
+    const services = useRef(null)
+    const about = useRef(null)
+    const contact = useRef(null)
+
     const clients = [
                         {
                             ref:animate_Client_1,
                             title:'Farms',
+                            class:'Farm-Clients',
                             image:Farm1,
                             description:'Empowering professional crop farmers with small to mid sized productioin'
                         },
@@ -31,6 +36,7 @@ const Body =( props )=> {
                         {
                             ref:animate_Client_2,
                             title:'Enterprise Farms',
+                            class:'Enterprise-Clients',
                             image:Farm2,
                             description:'Digitize Agri business companies with large and complex operations'
                         },
@@ -38,6 +44,7 @@ const Body =( props )=> {
                         {
                             ref:animate_Client_3,
                             title:'Cooperative',
+                            class:'Cooperative-Clients',
                             image:Farm3,
                             description:'Collaboratioin with farms in a cooperative to manage contracting transparently.'
                         },
@@ -142,6 +149,17 @@ const Body =( props )=> {
     }, []);
 
     useEffect(() => {
+        if(props.Section == 'services') {
+            services.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        if(props.Section == 'about') {
+            about.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+    }, [props.Section]);
+
+    useEffect(() => {
         const handleScroll = () => {
            
                 if (animate_Client_1.current) {
@@ -202,7 +220,7 @@ const Body =( props )=> {
                             <div className="row gx-4 gy-5 Client-Single-Card">
                                 {clients.map((client, index) => (
                                     <div className="col-md-4" key={index}>
-                                        <div className="Single-Client bg-white">
+                                        <div className={client.class}>
                                             <div className="Client-Card-Image py-5">
                                                 <img src={client.image} alt="" />
                                             </div>
@@ -218,8 +236,8 @@ const Body =( props )=> {
                         </div>
                     </div>
                 </div>
-
-                <div className="About-CYOL py-5">
+                
+                <div className="About-CYOL" ref={about}>
                     <div className="px-lg-5 mx-4 mx-sm-5 Align-Section">
                         <h1 className="text-center Heading-Title"><strong>ABOUT <span>CYOL</span></strong></h1>
 
@@ -238,8 +256,8 @@ const Body =( props )=> {
                         </div>
                     </div>
                 </div>
-
-                <div className="Crop-Management">
+                
+                <div className="Crop-Management" ref={services}>
                     <div className="px-lg-5 mx-4 mx-sm-5">
                         <h1 className="text-center px-sm-5">FULLY INTEGRATED <span>FARM FIELD</span> AND CROP MANAGEMENT</h1>
                     </div>

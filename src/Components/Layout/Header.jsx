@@ -6,7 +6,7 @@ import Navlinks from "../Reused/Navlinks";
 import { useState, useEffect } from "react";
 
 
-const Header =()=> {
+const Header =( props )=> {
     const [scrolled, setScrolled] = useState(false);
     const [togglerExpand, setTogglerExpand] = useState(false);
 
@@ -27,16 +27,20 @@ const Header =()=> {
     
     }, []);
 
+    const section_Finder =( selected )=> {
+        props.scroll_Wanted(selected)
+    }
+
     return (
       <div className="sticky-top">
         <div className={scrolled? 'Header Scrolled-Header': 'Header'}>
             <div className="mx-4 mx-sm-5 px-lg-5 Align-Header">
                 <div className="Brand">
-                    <img src={logo} alt="CYOL logo" />
+                    <img src={logo} alt="CYOL logo" type="button" onClick={()=> section_Finder('home')}/>
                 </div>
 
                 <div className="Navigations d-none d-md-flex">
-                    <Navlinks/>
+                    <Navlinks scroll_Until={section_Finder}/>
                 </div>
 
                 <div className="Toggler d-block d-md-none">
@@ -44,15 +48,13 @@ const Header =()=> {
                 </div>
             </div>
 
-            
-                <div className={scrolled?"Toggler-Menu-Mobile-Scrolled d-md-none":"Toggler-Menu-Mobile d-md-none"}>
-                    <div className={togglerExpand? "Expanded Toggler-Content":"Collapsed Toggler-Content"}>
-                        <div className={togglerExpand?"px-4 px-sm-5 Mobile-Navigations Show-Links":"px-4 px-sm-5 Mobile-Navigations Hide-Links"}>
-                          <Navlinks/>
-                        </div>
+            <div className={scrolled?"Toggler-Menu-Mobile-Scrolled d-md-none":"Toggler-Menu-Mobile d-md-none"}>
+                <div className={togglerExpand? "Expanded Toggler-Content":"Collapsed Toggler-Content"}>
+                    <div className={togglerExpand?"px-4 px-sm-5 Mobile-Navigations Show-Links":"px-4 px-sm-5 Mobile-Navigations Hide-Links"}>
+                      <Navlinks scroll_Until={section_Finder}/>
                     </div>
                 </div>
-            
+            </div>
         </div>
       </div>
     )
