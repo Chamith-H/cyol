@@ -40,7 +40,7 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const zoomLevel = scrollY * 0.0007; 
+  const zoomLevel = scrollY * 0.0009; 
   const transformStyle = `scale(${1 + zoomLevel})`;
 
   const identity_Scroller =async( selected )=> {

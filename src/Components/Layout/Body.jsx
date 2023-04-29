@@ -20,6 +20,16 @@ const Body =( props )=> {
     const animate_Client_3 = useRef(null)
     const [show_Clients, setShow_Clients] = useState([false, false, false])
 
+    const animate_About_1 = useRef(null)
+    const animate_About_2 = useRef(null)
+    const animate_About_3 = useRef(null)
+    const [show_Abouts, setShow_Abouts] = useState([false, false, false])
+
+    const animate_Manage_1 = useRef(null)
+    const animate_Manage_2 = useRef(null)
+    const animate_Manage_3 = useRef(null)
+    const [show_Manages, setShow_Manages] = useState([false, false, false])
+
     const services = useRef(null)
     const about = useRef(null)
     const contact = useRef(null)
@@ -52,18 +62,21 @@ const Body =( props )=> {
 
         const abouts = [
                         {
+                            ref:animate_About_1,
                             title:'Sample matching title',
                             image:About1,
                             description:'Lorem ipum dolor it amet, conect elit, ed do eiumod tempor incididu ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui notrud exercitation ullamco labori nii ut aliquip ex ea commodo conequat.'
                         },
 
                         {
+                            ref:animate_About_2,
                             title:'Sample matching title',
                             image:About2,
                             description:'Lorem ipum dolor it amet, conect elit, ed do eiumod tempor incididu ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui notrud exercitation ullamco labori nii ut aliquip ex ea commodo conequat.'
                         },
 
                         {
+                            ref:animate_About_3,
                             title:'Sample matching title',
                             image:About3,
                             description:'Lorem ipum dolor it amet, conect elit, ed do eiumod tempor incididu ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui notrud exercitation ullamco labori nii ut aliquip ex ea commodo conequat.'
@@ -72,18 +85,21 @@ const Body =( props )=> {
 
         const managements = [
                                 {
+                                    ref:animate_Manage_1,
                                     image:'',
                                     title:'Improve Planning and Increase Crop Yields',
                                     class:'Planning'
                                 },
 
                                 {
+                                    ref:animate_Manage_2,
                                     image:'',
                                     title:'One Platform for All Agricultural Data and Process Management',
                                     class:'Management'
                                 },
 
                                 {
+                                    ref:animate_Manage_3,
                                     image:'',
                                     title:'A Real-Time View of Data',
                                     class:'ViewData'
@@ -188,6 +204,60 @@ const Body =( props )=> {
                       setShow_Clients([true, true, true])
                     }
                 }
+
+                if (animate_About_1.current) {
+                    const { top} = animate_About_1.current.getBoundingClientRect();
+                    const isVisible = top < window.innerHeight-80;
+            
+                    if (isVisible) {
+                      setShow_Abouts([true, false, false])
+                    }
+                }
+
+                if (animate_About_2.current) {
+                    const { top} = animate_About_2.current.getBoundingClientRect();
+                    const isVisible = top < window.innerHeight-80;
+            
+                    if (isVisible) {
+                      setShow_Abouts([true, true, false])
+                    }
+                }
+
+                if (animate_About_3.current) {
+                    const { top} = animate_About_3.current.getBoundingClientRect();
+                    const isVisible = top < window.innerHeight-80;
+            
+                    if (isVisible) {
+                      setShow_Abouts([true, true, true])
+                    }
+                }
+
+                if (animate_Manage_1.current) {
+                    const { top} = animate_Manage_1.current.getBoundingClientRect();
+                    const isVisible = top < window.innerHeight-80;
+            
+                    if (isVisible) {
+                      setShow_Manages([true, false, false])
+                    }
+                }
+
+                if (animate_Manage_2.current) {
+                    const { top} = animate_Manage_2.current.getBoundingClientRect();
+                    const isVisible = top < window.innerHeight-80;
+            
+                    if (isVisible) {
+                      setShow_Manages([true, true, false])
+                    }
+                }
+
+                if (animate_Manage_3.current) {
+                    const { top} = animate_Manage_3.current.getBoundingClientRect();
+                    const isVisible = top < window.innerHeight-80;
+            
+                    if (isVisible) {
+                      setShow_Manages([true, true, true])
+                    }
+                }
             
         };
     
@@ -243,9 +313,9 @@ const Body =( props )=> {
 
                         <div className="About-Cards">
                             <div className="row gx-4 gy-5">
-                                {abouts.map((about) => (
+                                {abouts.map((about, index) => (
                                     <div className="col-md-4">
-                                        <div className="About-Card">
+                                        <div className={show_Abouts[index]?"About-Card About-Scrolled":"About-Card About-Default"} ref={about.ref}>
                                             <img src={about.image} alt="" />
                                             <h5>{about.title}</h5>
                                             <p>{about.description}</p>
@@ -266,11 +336,13 @@ const Body =( props )=> {
                 <div className="Crop-Management-Cards">
                     <div className="px-lg-5 mx-4 mx-sm-5">
                         <div className="row gx-4 gy-5">
-                            {managements.map((management) => (
+                            {managements.map((management, index) => (
                                 <div className="col-md-4">
-                                    <div className={management.class}>
-                                        <div className="Align-Management-Card ps-4 pe-5 pb-3">
-                                            <h2>{management.title}</h2>
+                                    <div className={show_Manages[index]?"About-Scrolled":"About-Default"} ref={management.ref}>
+                                        <div className={management.class}>
+                                            <div className="Align-Management-Card ps-4 pe-5 pb-3">
+                                                <h2>{management.title}</h2>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -284,8 +356,8 @@ const Body =( props )=> {
                         <h1 className="text-center Heading-Title">COMPLETE <span>DIGITAL SOLUTION</span> FOR EVERY FARM</h1>
 
                         <div className="row gx-4 gy-5 pt-4">
-                            {solutions.map((solution) => (
-                                <div className="col-sm-6">
+                            {solutions.map((solution, index) => (
+                                <div className="col-sm-6" key={index}>
                                     <div className="Single-Solution">
                                         <img className="mb-3" src={Point} alt="" />
                                         <h5 className="ms-2">{solution.title}</h5>
