@@ -1,3 +1,7 @@
+.Nav-Bar {
+  z-index: 990;
+}
+
 .Header {
     position: relative;
     height: 80px;

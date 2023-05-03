@@ -6,7 +6,7 @@ const Navlinks =( props )=> {
             <button onClick={()=> props.scroll_Until('home')}>Home</button>
             <button onClick={()=> props.scroll_Until('services')}>Services</button>
             <button onClick={()=> props.scroll_Until('about')}>About Us</button>
-            <button onClick={()=> props.scroll_Until('contact')}>Contact Us</button>
+            <button onClick={props.form_Popup}>Contact Us</button>
         </div>
     )
 }

@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'RobotoBold';
+    src: url('../../Assets/Fonts/Roboto-Black.ttf');
+}
+
+.Demo-Background {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    opacity: 0.05;
+    height: 100vh;
+}
+
+.Hide-Form-Popup {
+    padding-right:280px;
+    opacity: 0;
+    transition: padding-right 0.6s ease-in-out, opacity 0.4s ease-in-out; 
+}
+
+.Show-Form-Popup {
+    padding-right:0px;
+    opacity: 1;
+    transition: padding-right 0.6s ease-in-out 0.4s, opacity 0.4s ease-in-out 0.4s; 
+}
+
+.Contact-Header-Background {
+    background: #00662e;
+}
+
+.Contact-Handler {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Contact-Handler h6 {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+}
+
+.Contact-Handler img {
+    height: 55px;
+}
+
+.Form-Handler {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    align-items: center;
+}
+
+.Contact-Handler button {
+    background-color: rgba(255, 255, 255, 0);
+    border-style: none;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.Form-Submitting button {
+    border-style: none;
+    height: 40px;
+    background: #00674c;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #ffffff;
+}
+
+.Form-Title h2 {
+    font-family: 'RobotoBold';
+}
