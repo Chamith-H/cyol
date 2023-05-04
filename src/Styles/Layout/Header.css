@@ -37,10 +37,12 @@
 
 .Brand img {
     height: 55px;
+    background-color: rgba(0, 255, 255, 0);
 }
 
 .Toggler img {
   height: 40px;
+  background-color: rgba(0, 255, 255, 0);
 }
 
 .Toggler img:active {
