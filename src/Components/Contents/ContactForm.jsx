@@ -83,7 +83,7 @@ const ContactForm =( props )=> {
                                 ))}
                             </div>
 
-                            <div className="col-sm-6 Form-Submitting pt-5">
+                            <div className="col-sm-6 Form-Submitting py-5">
                                 <p className="me-4">Thank you for your interest in our solutions. We will be in touch with you shortly</p>
                                 <button>Submit Request</button>
                             </div>
