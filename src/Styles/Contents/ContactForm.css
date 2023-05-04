@@ -42,7 +42,7 @@
 }
 
 .Contact-Header-Background {
-    background: #00662e;
+    background-color: #007D50
 }
 
 .Contact-Handler {
@@ -82,7 +82,7 @@
 .Form-Submitting button {
     border-style: none;
     height: 40px;
-    background: #00674c;
+    background-color: #007D50;
     padding-left: 15px;
     padding-right: 15px;
     color: #ffffff;
@@ -98,7 +98,7 @@
 }
 
 .Form-Title span {
-    color: #00674c;
+    background-color: #007D50
 }
 
 .Form-Submitting p {
