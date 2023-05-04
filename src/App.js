@@ -4,6 +4,7 @@ import Body from './Components/Layout/Body';
 import Footer from './Components/Layout/Footer';
 
 import Logo from "./Assets/Logos/cyol_logo_form.png"
+import { saveAs } from 'file-saver';
 
 import { useState, useEffect, useRef } from 'react';
 import ContactForm from './Components/Contents/ContactForm';
@@ -27,23 +28,35 @@ function App() {
       title:"Download the product brochure",
       class:"col-12",
       subClass:"Brochure",
-      navigater:"https://cyol.vercel.app/dashboard"
+      navigater:"",
+      action:true,
     },
 
     {
       title:"Visit our website",
       class:"col-6",
       subClass:"Website",
-      navigater:"https://cyol.vercel.app/"
+      navigater:"https://cyol.vercel.app/",
+      action:false,
     },
 
     {
       title:"Product overview",
       class:"col-6",
       subClass:"Overview",
-      navigater:""
+      navigater:"",
+      action:false,
     },
   ]
+
+  const handle_Navigation =(_action, e)=> {
+    if(_action) {
+      e.preventDefault();
+      
+      const pdfURL = require('./Assets/Files/CYOL_brouchure.pdf');
+      saveAs(pdfURL,'CYOL Product brochure.pdf')
+    }
+  }
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -133,7 +146,7 @@ function App() {
                           <div className="row g-0 Align-Background">
                             {buttons.map((button) => (
                               <div className={button.class}>
-                                <a href={button.navigater}>
+                                <a href={button.navigater} onClick={(e) => handle_Navigation(button.action, e)}>
                                   <Navbutton Button={button} Styler={button.subClass}/>
                                 </a>
                               </div>
