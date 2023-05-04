@@ -55,12 +55,12 @@ const Header =( props )=> {
     return (
       <div className="sticky-top Nav-Bar" ref={ref} >
         <div className={scrolled? 'Header Scrolled-Header': 'Header'}>
-            <div className="mx-4 mx-sm-5 px-lg-5 Align-Header">
+            <div className="mx-4 mx-sm-5 px-lg-5 Align-Header-Main">
                 <div className="Brand">
                     <img src={logo} alt="CYOL logo" type="button" onClick={()=> section_Finder('home')}/>
                 </div>
 
-                <div className="Navigations d-none d-md-flex">
+                <div className="Navigations-Main d-none d-md-flex">
                     <Navlinks scroll_Until={section_Finder} form_Popup={handdle_Form}/>
                 </div>
 

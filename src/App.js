@@ -2,10 +2,14 @@ import './App.css';
 import Header from './Components/Layout/Header';
 import Body from './Components/Layout/Body';
 import Footer from './Components/Layout/Footer';
-import { animateScroll as scroll } from 'react-scroll';
+
+import Logo from "./Assets/Logos/cyol_logo_form.png"
 
 import { useState, useEffect, useRef } from 'react';
 import ContactForm from './Components/Contents/ContactForm';
+import Navbutton from './Components/Reused/Navbutton';
+
+import { Routes, HashRouter as Router, Route} from "react-router-dom";
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,6 +21,29 @@ function App() {
   const pageTop = useRef(null)
 
   const [scrollSection, setScrollSection] = useState('')
+
+  const buttons = [
+    {
+      title:"Download the product brochure",
+      class:"col-12",
+      subClass:"Brochure",
+      navigater:""
+    },
+
+    {
+      title:"Visit our website",
+      class:"col-6",
+      subClass:"Website",
+      navigater:"https://cyol.vercel.app/"
+    },
+
+    {
+      title:"Product overview",
+      class:"col-6",
+      subClass:"Overview",
+      navigater:""
+    },
+  ]
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -75,22 +102,54 @@ function App() {
 
   return (
     <div className={showForm? "App-Stop":"App"}>
-     
-        <div className={showForm? "Show-Form":"Hide-Form"}>
-            <ContactForm hide_Popup={view_Form} Status={showForm} Handler={buttonView}/>
-        </div>
+      <Router>
+          <Routes>
+              <Route path='/' element={
+                  <div className="Main-Web-Site">
+                      <div className={showForm? "Show-Form":"Hide-Form"}>
+                        <ContactForm hide_Popup={view_Form} Status={showForm} Handler={buttonView}/>
+                      </div>
       
-      
+                      <div className="Hero-Image"  style={{ transform: transformStyle }}>
+                          <div className={scrolled?"Scrolled-Hero-Body":"Align-Hero"}/>
+                      </div>
 
-      <div className="Hero-Image"  style={{ transform: transformStyle }}>
-          <div className={scrolled?"Scrolled-Hero-Body":"Align-Hero"}/>
-      </div>
+                      <div className="Header-Margin" ref={pageTop}/>
 
-      <div className="Header-Margin" ref={pageTop}/>
+                      <Header scroll_Wanted={identity_Scroller} get_Form={view_Form}/>
+                      <Body Section={scrollSection}/>
+                      <Footer/>
+                  </div>
+              } />
 
-      <Header scroll_Wanted={identity_Scroller} get_Form={view_Form}/>
-      <Body Section={scrollSection}/>
-      <Footer/>
+              <Route path='/dashboard' element={
+                  <div className="QR-Dashboard">
+                      <div className="Header-Dashboard">
+                        <img src={Logo}/>
+                      </div>
+
+                      <div className="Navigations px-3 px-sm-5">
+                        <div className="Background mt-3 mt-sm-5">
+                          <div className="row g-0 Align-Background">
+                            {buttons.map((button) => (
+                              <div className={button.class}>
+                                <a href={button.navigater}>
+                                  <Navbutton Button={button} Styler={button.subClass}/>
+                                </a>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="Requesting mt-4 d-flex flex-column align-items-center">
+                          <p className="text-center">Unlock the full potential of our product</p>
+                          <a href="https://cyol.vercel.app/?request=1"><button>Request Demo</button></a>
+                        </div>
+                       </div>
+                    </div>
+                  }/>
+            </Routes>
+      </Router>  
     </div>
   );
 }
