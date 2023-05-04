@@ -9,7 +9,7 @@ import { useState, useEffect, useRef } from 'react';
 import ContactForm from './Components/Contents/ContactForm';
 import Navbutton from './Components/Reused/Navbutton';
 
-import { Routes, HashRouter as Router, Route} from "react-router-dom";
+import { Routes, BrowserRouter as Router, Route} from "react-router-dom";
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -27,7 +27,7 @@ function App() {
       title:"Download the product brochure",
       class:"col-12",
       subClass:"Brochure",
-      navigater:""
+      navigater:"https://cyol.vercel.app/dashboard"
     },
 
     {
