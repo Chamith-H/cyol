@@ -84,7 +84,9 @@
     width: 200px;
     height: 60px;
     border-radius: 80px;  
-    font-size: 17px;
+    font-size: 18px;
+    font-family: 'RobotoBold';
+    transition: background 0.9s ease;
 }
 
 .Hero-Section button:hover {
@@ -92,6 +94,7 @@
     border-style:solid;
     border-color: #ffffff;
     color: rgb(29, 29, 29);
+    transition: background 0.9s ease-out;
 }
 
 .Font-Default button {

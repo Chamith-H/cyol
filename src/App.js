@@ -130,7 +130,7 @@ function App() {
                       <div className="Header-Margin" ref={pageTop}/>
 
                       <Header scroll_Wanted={identity_Scroller} get_Form={view_Form}/>
-                      <Body Section={scrollSection}/>
+                      <Body Section={scrollSection} get_Form={view_Form}/>
                       <Footer/>
                   </div>
               } />

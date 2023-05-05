@@ -1,6 +1,5 @@
 import "../../Styles/Contents/ContactForm.css"
 import Logo from "../../Assets/Logos/cyol_logo.png"
-import Demo from "../../Assets/Images/DemoBackground.jpg"
 import InputField from "../Reused/InputField"
 
 import { useState } from "react"
@@ -67,7 +66,7 @@ const ContactForm =( props )=> {
                     <div className="px-4 px-sm-5 Form-Handler py-5">
                         <div className="px-xl-5 mx-lg-5">
                         <div className="Form-Title px-md-5">
-                            <h2 className="text-center">Transform your business with our solutions and experience the power of <span>CYOL</span> by requesting a Demo</h2>
+                            <h2 className="text-center">Transform your business with our solutions and experience the power of <span>CYOL</span></h2>
                         </div>
 
                         <form action="" className="px-md-5">

@@ -63,23 +63,23 @@ const Body =( props )=> {
         const abouts = [
                         {
                             ref:animate_About_1,
-                            title:'Sample matching title',
-                            image:About1,
-                            description:'Lorem ipum dolor it amet, conect elit, ed do eiumod tempor incididu ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui notrud exercitation ullamco labori nii ut aliquip ex ea commodo conequat.'
+                            title:'Achieve consistency in your farming data',
+                            image:About2,
+                            description:'Improve data quality and connect existing data sets to increase productivity and gain valuable insights.'
                         },
 
                         {
                             ref:animate_About_2,
-                            title:'Sample matching title',
-                            image:About2,
-                            description:'Lorem ipum dolor it amet, conect elit, ed do eiumod tempor incididu ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui notrud exercitation ullamco labori nii ut aliquip ex ea commodo conequat.'
+                            title:'Increase productivity in farm management',
+                            image:About3,
+                            description:'Manage, shedule and execute farming activities more efficiently throughout the growing cycle with everyone working from common farming plans and schedules.'
                         },
 
                         {
                             ref:animate_About_3,
-                            title:'Sample matching title',
-                            image:About3,
-                            description:'Lorem ipum dolor it amet, conect elit, ed do eiumod tempor incididu ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui notrud exercitation ullamco labori nii ut aliquip ex ea commodo conequat.'
+                            title:'Digitalize your own farming experience',
+                            image:About1,
+                            description:'Develop valuable, differentiating farming decision support models in corporate assets that drive farming efficiency and sustainability.'
                         }
                       ]
 
@@ -276,7 +276,7 @@ const Body =( props )=> {
                     <h5 className="text-center text-md-start">Intelligent Farming and Provenance Solution</h5>
 
                     <div className="Align-Hero-Button d-flex justify-content-center justify-content-md-start">
-                        <button><strong>Book Now</strong></button>
+                        <button onClick={props.get_Form}>Request Demo</button>
                     </div>
                 </div>
             </div>
