@@ -4,7 +4,7 @@ import InputField from "../Reused/InputField"
 
 
 import { useState } from "react"
-import CountrySelecter from "../Reused/CountrySelecter"
+import emailjs from "emailjs-com"
 
 const ContactForm =( props )=> {
     const [startedTyping, setStartedTyping] = useState([false, false, false, false, false]);
@@ -98,7 +98,23 @@ const ContactForm =( props )=> {
 
     const send_FormDATA =async( event )=> {
         event.preventDefault();
-        console.log(enterInputs)
+        
+        const sender_data = {
+                                f_name: enterInputs.firstName,
+                                l_name: enterInputs.lastName,
+                                email: enterInputs.email,
+                                company: enterInputs.company,
+                                country: enterInputs.country,
+                                phone: enterInputs.phone
+                            }
+
+        emailjs.send('service_5irelg8', 'template_epi9ido', sender_data, '_ZyZhuURkd7yceYjK')
+            .then((result) => {
+                console.log(result.text)
+            }, (error) => {
+                console.log(error.text)
+            }
+        )
     }
 
     const handleValidation =async()=> {

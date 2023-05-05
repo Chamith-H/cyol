@@ -13,7 +13,7 @@
 
 .Footer-Address {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .Footer-Address i {
@@ -67,12 +67,19 @@
     margin-left: 15px;
 }
 
+@media only screen and (min-width: 0px) and (max-width: 576px) {
+    .Footer-Address {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 @media only screen and (min-width: 0px) and (max-width: 768px) {
     .Footer-End {
         display:flex;
         flex-direction:column-reverse;
         justify-content: center;
         align-items: center;
-        height: 140px;
+        height: 60px;
     }
 }
