@@ -1,30 +1,62 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../../Styles/Reused/InputField.css"
 
 const InputField =( props )=> {
 
     const [startedTyping, setStartedTyping] = useState(false);
-    const [value, setValue] = useState("")
+    const [checkValue, setCheckValue] = useState("")
 
-    const get_Values =( event )=> {
-        setValue(event.target.value)
+    const [fieldStatus, setFieldStatus] = useState(true)
+
+    const [isValid, setIsValid] = useState(true);
+    const [validClass, setValidClass] = useState('Type-Focused')
+
+    const get_Values =async( event )=> {
+        await props.Entered(event);
+        await setCheckValue(event.target.value);
+        
+        setIsValid(event.target.validity.valid);
+    }
+
+    const get_Focused =()=> {
+        setStartedTyping(true)
     }
 
     const make_Default =()=> {
-        if(value == "") {
+        if(checkValue == "" && fieldStatus) {
             setStartedTyping(false)
         }
     }
 
+    useEffect(() => {
+        if(props.Submited) {
+            if(!isValid || (props.Required && checkValue == "")) {
+                setValidClass('Type-Unvalid')
+                get_Focused()
+                setFieldStatus(false)
+            }
+
+            else {
+                setValidClass('Type-Focused')
+                setFieldStatus(true)
+            }
+        }
+
+    }, [props.Submited]);
+
     return (
-        <div className="InputField">
+        <div className={fieldStatus?"InputField default-Input":"InputField Error-Input"}>
             <input  type={props.Type} 
-                    onFocus={()=> setStartedTyping(true)}
+                    onFocus={get_Focused}
                     onChange={get_Values}
                     onBlur={make_Default}
+                    value={props.Value}
+                    pattern={props.Pattern}
+                    required={props.Required}
+                    title={props.Validation}
             />
 
-            <p className={startedTyping? "Type-Focused":"Type-Unfocused"}>{props.Placeholder}</p>
+            <p className={startedTyping? `${validClass}`:"Type-Unfocused"}>{props.Placeholder}</p>
         </div>
     )
 }

@@ -2,15 +2,23 @@
     background: #007D50;
 }
 
-.Footer-Brand p{
+.Footer-Address p{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
     color: rgba(255, 255, 255, 0.747);
     font-weight: 300;
     margin-bottom: 0;
 }
 
-.Footer-Brand i {
+.Footer-Address {
+    display: flex;
+    justify-content: center;
+}
+
+.Footer-Address i {
     color: #F5A22E;
-    font-size: 18px;
+    font-size: 48px;
 }
 
 .Footer-Logo {
@@ -35,7 +43,7 @@
     border-width: 1px;
     border-color: #F5A22E;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 60px;
     width: 100%;
