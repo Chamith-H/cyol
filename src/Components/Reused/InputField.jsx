@@ -11,6 +11,9 @@ const InputField =( props )=> {
     const [isValid, setIsValid] = useState(true);
     const [validClass, setValidClass] = useState('Type-Focused')
 
+    const [emptyError, setEmptyError] = useState(false);
+    const [validError, setValidError] = useState(false);
+
     const get_Values =async( event )=> {
         await props.Entered(event);
         await setCheckValue(event.target.value);
@@ -28,12 +31,26 @@ const InputField =( props )=> {
         }
     }
 
+    const catch_Error =()=> {
+        if(!isValid) {
+            setEmptyError(false)
+            setValidError(true)
+        }
+
+        if(props.Required && checkValue == "") {
+            setValidError(false)
+            setEmptyError(true)
+        }
+    }
+
     useEffect(() => {
         if(props.Submited) {
             if(!isValid || (props.Required && checkValue == "")) {
                 setValidClass('Type-Unvalid')
                 get_Focused()
                 setFieldStatus(false)
+
+                catch_Error()
             }
 
             else {
@@ -57,6 +74,14 @@ const InputField =( props )=> {
             />
 
             <p className={startedTyping? `${validClass}`:"Type-Unfocused"}>{props.Placeholder}</p>
+
+            {emptyError && (
+                <p className="Error-MSG">{props.Error1}</p>
+            )}
+
+            {validError && (
+                <p className="Error-MSG">{props.Error2}</p>
+            )}
         </div>
     )
 }

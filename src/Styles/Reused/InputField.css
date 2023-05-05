@@ -16,10 +16,15 @@
     border-style: solid;
     border-width: 1px;
     padding-left: 15px;
+    outline: none;
 }
 
 .default-Input input {
     border-color: rgb(177, 177, 177);
+}
+
+.default-Input input:focus {
+    outline: rgb(0, 167, 45) solid 1px;
 }
 
 .Error-Input input {
@@ -65,4 +70,18 @@
     left:12px;
     top:-10px;
     transition: top 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.Error-MSG {
+    margin-top: -2px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    padding-left: 15px;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: rgb(255, 0, 0);
+    font-family: 'Roboto';
+    font-size: 13px;
 }

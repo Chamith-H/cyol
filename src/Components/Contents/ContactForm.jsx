@@ -27,6 +27,8 @@ const ContactForm =( props )=> {
             type:'name',
             pattern:'^[a-zA-Z ]+$',
             validation:'First name can only contain letters',
+            error1:'* First name cannot be empty',
+            error2:'* Invalid name',
             required:true
         },
 
@@ -36,6 +38,8 @@ const ContactForm =( props )=> {
             type:'name',
             pattern:'^[a-zA-Z ]+$',
             validation:'Last name can only contain letters',
+            error1:'',
+            error2:'',
             required:false
         },
 
@@ -44,6 +48,8 @@ const ContactForm =( props )=> {
             placeholder:'Email',
             type:'email',
             validation:'Eg : example@email.com',
+            error1:'* Email cannot be empty',
+            error2:'* Invalid email address',
             required:true
         },
 
@@ -53,6 +59,8 @@ const ContactForm =( props )=> {
             type:'name',
             pattern:'^[a-zA-Z ]+$',
             validation:'',
+            error1:'* Company name cannot be empty',
+            error2:'* Invalid company name',
             required:true
         },
 
@@ -62,6 +70,8 @@ const ContactForm =( props )=> {
             type:'name',
             pattern:'',
             validation:'',
+            error1:'',
+            error2:'',
             required:false
         },
 
@@ -71,6 +81,8 @@ const ContactForm =( props )=> {
             type:'name',
             pattern:'',
             validation:'',
+            error1:'',
+            error2:'',
             required:false
         },
     ]
@@ -135,6 +147,8 @@ const ContactForm =( props )=> {
                                             Validation={input.validation}
                                             Required={input.required}
                                             Submited={submited}
+                                            Error1={input.error1}
+                                            Error2={input.error2}
                                         />
                                     </div>
                                 ))}

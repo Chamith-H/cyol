@@ -131,7 +131,7 @@ function App() {
 
                       <Header scroll_Wanted={identity_Scroller} get_Form={view_Form}/>
                       <Body Section={scrollSection} get_Form={view_Form}/>
-                      <Footer/>
+                      <Footer scroll_Wanted={identity_Scroller} get_Form={view_Form}/>
                   </div>
               } />
 
