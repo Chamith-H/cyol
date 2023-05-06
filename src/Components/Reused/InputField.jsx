@@ -33,8 +33,8 @@ const InputField =( props )=> {
 
     const catch_Error =()=> {
         if(!isValid) {
-            setEmptyError(false)
-            setValidError(true)
+            setEmptyError(false);
+            setValidError(true);
         }
 
         if(props.Required && checkValue == "") {
