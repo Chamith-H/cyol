@@ -21,7 +21,7 @@ function App() {
 
   const pageTop = useRef(null)
 
-  const [scrollSection, setScrollSection] = useState('')
+  const [scrollSection, setScrollSection] = useState('');
 
   const buttons = [
     {
