@@ -36,7 +36,7 @@ function App() {
       title:"Visit our website",
       class:"col-6",
       subClass:"Website",
-      navigater:"https://cyol.vercel.app/",
+      navigater:"https://thecyol.com/",
       action:false,
     },
 
@@ -156,7 +156,7 @@ function App() {
 
                         <div className="Requesting mt-4 d-flex flex-column align-items-center">
                           <p className="text-center">Unlock the full potential of our product</p>
-                          <a href="https://cyol.vercel.app/?request=1"><button>Request Demo</button></a>
+                          <a href="https://thecyol.com/?request=1"><button>Request Demo</button></a>
                         </div>
                        </div>
                     </div>
