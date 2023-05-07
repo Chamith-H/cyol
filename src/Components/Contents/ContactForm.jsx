@@ -4,6 +4,7 @@ import InputField from "../Reused/InputField"
 
 import emailjs from "emailjs-com"
 import { useState } from "react"
+import SubmitPopup from "./SubmitPopup"
 
 
 const ContactForm =( props )=> {
@@ -19,6 +20,7 @@ const ContactForm =( props )=> {
                                                     })
 
     const [submited, setSubmited] = useState(false)
+    const [isSubmit, setIsSubmit] = useState(false)
 
     const inputs = [
         {
@@ -39,7 +41,7 @@ const ContactForm =( props )=> {
             pattern:'^[a-zA-Z ]+$',
             validation:'Last name can only contain letters',
             error1:'',
-            error2:'',
+            error2:'* Invalid name',
             required:false
         },
 
@@ -71,7 +73,7 @@ const ContactForm =( props )=> {
             pattern:'[a-zA-Z ]+$',
             validation:'Invalid country name',
             error1:'',
-            error2:'',
+            error2:'* Invalid country name',
             required:false
         },
 
@@ -82,7 +84,7 @@ const ContactForm =( props )=> {
             pattern:'^[0-9+]*$',
             validation:'Phone number is not walid',
             error1:'',
-            error2:'',
+            error2:'* Invalid phone number',
             required:false
         },
     ]
@@ -99,35 +101,37 @@ const ContactForm =( props )=> {
     const send_FormDATA =async( event )=> {
         event.preventDefault();
 
-        const data = {
-            firstname: enterInputs.firstName,
-            name: `${enterInputs.firstName} ${enterInputs.lastName}`,
-            company: enterInputs.company,
-            email: enterInputs.email,
-            country: enterInputs.country,
-            phone: enterInputs.phone
-        }
+        // const data = {
+        //     firstname: enterInputs.firstName,
+        //     name: `${enterInputs.firstName} ${enterInputs.lastName}`,
+        //     company: enterInputs.company,
+        //     email: enterInputs.email,
+        //     country: enterInputs.country,
+        //     phone: enterInputs.phone
+        // }
 
-        emailjs.send('service_08vjxhy', 'template_757wgws', data, 'zNdGc-DFmadgeJmT5')
-        .then((result) => {
-            console.log(result.text)
-        }, (error) => {
-            console.log(error.text)
-        })
+        // emailjs.send('service_08vjxhy', 'template_757wgws', data, 'zNdGc-DFmadgeJmT5')
+        // .then((result) => {
+        //     console.log(result.text)
+        // }, (error) => {
+        //     console.log(error.text)
+        // })
 
-        //-------------------------------------------------------------------------
+        // //-------------------------------------------------------------------------
 
-        const thank = {
-            firstname: enterInputs.firstName,
-            email: enterInputs.email,
-        }
+        // const thank = {
+        //     firstname: enterInputs.firstName,
+        //     email: enterInputs.email,
+        // }
 
-        emailjs.send('service_08vjxhy', 'template_rmn941q', thank, 'zNdGc-DFmadgeJmT5')
-        .then((result) => {
-            console.log(result.text)
-        }, (error) => {
-            console.log(error.text)
-        })
+        // emailjs.send('service_08vjxhy', 'template_rmn941q', thank, 'zNdGc-DFmadgeJmT5')
+        // .then((result) => {
+        //     console.log(result.text)
+        // }, (error) => {
+        //     console.log(error.text)
+        // })
+
+        setIsSubmit(true)
     }
 
     const handleValidation =async()=> {
@@ -187,12 +191,15 @@ const ContactForm =( props )=> {
                                 <p className="me-4">Thank you for your interest in our solutions. We will be in touch with you shortly</p>
                                 <button type="submit" onClick={handleValidation}>Submit Request</button>
                             </div>
-
                         </form>
                         </div>
                     </div>
                 </div>
             </div>
+
+            {isSubmit && (
+                <SubmitPopup/>
+            )}
         </div>
     )
 }
