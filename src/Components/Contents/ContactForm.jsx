@@ -101,35 +101,35 @@ const ContactForm =( props )=> {
     const send_FormDATA =async( event )=> {
         event.preventDefault();
 
-        // const data = {
-        //     firstname: enterInputs.firstName,
-        //     name: `${enterInputs.firstName} ${enterInputs.lastName}`,
-        //     company: enterInputs.company,
-        //     email: enterInputs.email,
-        //     country: enterInputs.country,
-        //     phone: enterInputs.phone
-        // }
+        const data = {
+            firstname: enterInputs.firstName,
+            name: `${enterInputs.firstName} ${enterInputs.lastName}`,
+            company: enterInputs.company,
+            email: enterInputs.email,
+            country: enterInputs.country,
+            phone: enterInputs.phone
+        }
 
-        // emailjs.send('service_08vjxhy', 'template_757wgws', data, 'zNdGc-DFmadgeJmT5')
-        // .then((result) => {
-        //     console.log(result.text)
-        // }, (error) => {
-        //     console.log(error.text)
-        // })
+        emailjs.send('service_08vjxhy', 'template_757wgws', data, 'zNdGc-DFmadgeJmT5')
+        .then((result) => {
+            console.log(result.text)
+        }, (error) => {
+            console.log(error.text)
+        })
 
-        // //-------------------------------------------------------------------------
+        //-------------------------------------------------------------------------
 
-        // const thank = {
-        //     firstname: enterInputs.firstName,
-        //     email: enterInputs.email,
-        // }
+        const thank = {
+            firstname: enterInputs.firstName,
+            email: enterInputs.email,
+        }
 
-        // emailjs.send('service_08vjxhy', 'template_rmn941q', thank, 'zNdGc-DFmadgeJmT5')
-        // .then((result) => {
-        //     console.log(result.text)
-        // }, (error) => {
-        //     console.log(error.text)
-        // })
+        emailjs.send('service_08vjxhy', 'template_rmn941q', thank, 'zNdGc-DFmadgeJmT5')
+        .then((result) => {
+            console.log(result.text)
+        }, (error) => {
+            console.log(error.text)
+        })
 
         setIsSubmit(true)
     }
