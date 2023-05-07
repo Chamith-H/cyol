@@ -34,19 +34,19 @@ function App() {
 
     {
       title:"Visit our website",
-      class:"col-6",
+      class:"col-12",
       subClass:"Website",
       navigater:"https://thecyol.com/",
       action:false,
     },
 
-    {
-      title:"Product overview",
-      class:"col-6",
-      subClass:"Overview",
-      navigater:"",
-      action:false,
-    },
+    // {
+    //   title:"Product overview",
+    //   class:"col-6",
+    //   subClass:"Overview",
+    //   navigater:"",
+    //   action:false,
+    // },
   ]
 
   const handle_Navigation =(_action, e)=> {
@@ -141,7 +141,7 @@ function App() {
                         <img src={Logo}/>
                       </div>
 
-                      <div className="Navigations px-3 px-sm-5">
+                      <div className="Navigations px-4 px-sm-5">
                         <div className="Background mt-3 mt-sm-5">
                           <div className="row g-0 Align-Background">
                             {buttons.map((button) => (
