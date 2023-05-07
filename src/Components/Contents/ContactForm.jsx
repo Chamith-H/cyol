@@ -2,9 +2,9 @@ import "../../Styles/Contents/ContactForm.css"
 import Logo from "../../Assets/Logos/cyol_logo.png"
 import InputField from "../Reused/InputField"
 
-
-import { useState } from "react"
 import emailjs from "emailjs-com"
+import { useState } from "react"
+
 
 const ContactForm =( props )=> {
     const [startedTyping, setStartedTyping] = useState([false, false, false, false, false]);
@@ -68,8 +68,8 @@ const ContactForm =( props )=> {
             name:'country',
             placeholder:'Country  *( Optional )',
             type:'name',
-            pattern:'',
-            validation:'',
+            pattern:'[a-zA-Z ]+$',
+            validation:'Invalid country name',
             error1:'',
             error2:'',
             required:false
@@ -79,8 +79,8 @@ const ContactForm =( props )=> {
             name:'phone',
             placeholder:'Phone Number  *( Optional )',
             type:'name',
-            pattern:'',
-            validation:'',
+            pattern:'^[0-9+]*$',
+            validation:'Phone number is not walid',
             error1:'',
             error2:'',
             required:false
@@ -98,23 +98,36 @@ const ContactForm =( props )=> {
 
     const send_FormDATA =async( event )=> {
         event.preventDefault();
-        
-        const sender_data = {
-                                f_name: enterInputs.firstName,
-                                l_name: enterInputs.lastName,
-                                email: enterInputs.email,
-                                company: enterInputs.company,
-                                country: enterInputs.country,
-                                phone: enterInputs.phone
-                            }
 
-        emailjs.send('service_5irelg8', 'template_epi9ido', sender_data, '_ZyZhuURkd7yceYjK')
-            .then((result) => {
-                console.log(result.text)
-            }, (error) => {
-                console.log(error.text)
-            }
-        )
+        const data = {
+            firstname: enterInputs.firstName,
+            name: `${enterInputs.firstName} ${enterInputs.lastName}`,
+            company: enterInputs.company,
+            email: enterInputs.email,
+            country: enterInputs.country,
+            phone: enterInputs.phone
+        }
+
+        emailjs.send('service_08vjxhy', 'template_757wgws', data, 'zNdGc-DFmadgeJmT5')
+        .then((result) => {
+            console.log(result.text)
+        }, (error) => {
+            console.log(error.text)
+        })
+
+        //-------------------------------------------------------------------------
+
+        const thank = {
+            firstname: enterInputs.firstName,
+            email: enterInputs.email,
+        }
+
+        emailjs.send('service_08vjxhy', 'template_rmn941q', thank, 'zNdGc-DFmadgeJmT5')
+        .then((result) => {
+            console.log(result.text)
+        }, (error) => {
+            console.log(error.text)
+        })
     }
 
     const handleValidation =async()=> {
