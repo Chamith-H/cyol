@@ -34,3 +34,9 @@
     font-family: 'RobotoBold';
     text-shadow: 2px 2px 2px #000000;
 }
+
+@media only screen and (min-width: 0px) and (max-width: 576px) {
+    .Navbutton {
+        height: 23vh;
+    }
+}
