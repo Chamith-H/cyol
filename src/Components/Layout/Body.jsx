@@ -10,7 +10,7 @@ import About3 from "../../Assets/Images/About3.jpg";
 
 import Point from "../../Assets/Icons/Management_Point.jpg";
 import { useRef, useEffect, useState } from "react";
-import { VideoCarousel } from "./VideoCarosel";
+import { Carousel } from "./Carousel";
 
 const Body = (props) => {
   const [scrolled, setScrolled] = useState(false);
@@ -150,21 +150,6 @@ const Body = (props) => {
         "Automate data exchange with machinery ,connect weather stations and soil sensors",
         "Make fact-based decisions based on real-time insights into weather conditions, pest risk and crop health by field.",
       ],
-    },
-  ];
-
-  const demoVideos = [
-    {
-      link: "https://www.youtube.com/embed/pKGJimYpTGE?si=sOvszJ1ZkDx8-JTt",
-      title: "Outgrower",
-    },
-    {
-      link: "https://www.youtube.com/embed/Xj_tCb1WdAQ?si=vIkWCCmf193cznJ0",
-      title: "Quality control",
-    },
-    {
-      link: "https://www.youtube.com/embed/9aF3PCj-XJM?si=04t3C0RmREZ6XHS1",
-      title: "CYOL-SAP partnership",
     },
   ];
 
@@ -311,7 +296,7 @@ const Body = (props) => {
       <div className="Body-Contents">
         <div className="Our-Clients py-5">
           <div className="px-lg-5 mx-4 mx-sm-5 Align-Section">
-            <h1 className="text-center Heading-Title">
+            <h1 className="All-Text text-center Heading-Title">
               OUR <span>CLIENTS</span>
             </h1>
 
@@ -345,7 +330,7 @@ const Body = (props) => {
 
         <div className="About-CYOL" ref={about}>
           <div className="px-lg-5 mx-4 mx-sm-5 Align-Section">
-            <h1 className="text-center Heading-Title">
+            <h1 className="All-Text text-center Heading-Title">
               <strong>
                 ABOUT <span>CYOL</span>
               </strong>
@@ -376,7 +361,7 @@ const Body = (props) => {
 
         <div className="Crop-Management" ref={services}>
           <div className="px-lg-5 mx-4 mx-sm-5">
-            <h1 className="text-center px-sm-5">
+            <h1 className="All-Text text-center px-sm-5">
               FULLY INTEGRATED <span>FARM FIELD</span> AND CROP MANAGEMENT
             </h1>
           </div>
@@ -407,7 +392,7 @@ const Body = (props) => {
 
         <div className="Digital-Solutions">
           <div className="px-lg-5 mx-4 mx-sm-5">
-            <h1 className="text-center Heading-Title">
+            <h1 className="All-Text text-center Heading-Title">
               COMPLETE <span>DIGITAL SOLUTION</span> FOR EVERY FARM
             </h1>
 
@@ -429,14 +414,14 @@ const Body = (props) => {
             </div>
           </div>
 
-          <div className="px-lg-5 mx-4 mx-sm-5 mt-5">
-            <h1 className="text-center px-sm-5 pt-5 mt-5 mb-5">
+          <div className="px-lg-5 mx-4 mx-sm-5 mt-5 pt-5">
+            <h1 className="All-Text text-center px-sm-5 pt-5 mt-4 mb-5 pt-4">
               LEARN MORE WITH OUR <span>GALLERY</span>
             </h1>
           </div>
 
-          <div className="Video-Links px-lg-5 mx-4 mx-sm-5 pb-4">
-            <VideoCarousel videos={demoVideos} />
+          <div className="Video-Links pb-4">
+            <Carousel />
           </div>
         </div>
       </div>

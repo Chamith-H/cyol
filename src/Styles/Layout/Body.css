@@ -25,16 +25,13 @@
   padding-bottom: 45px;
 }
 
-.Our-Clients h1,
-.About-CYOL h1,
-.Digital-Solutions h1 {
+.All-Text {
+  font-size: 35px;
   font-family: "RobotoHead";
   color: rgb(0, 0, 0);
 }
 
-.Our-Clients span,
-.About-CYOL span,
-.Digital-Solutions span {
+.All-Text span {
   color: #007d50;
 }
 
