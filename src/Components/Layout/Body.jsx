@@ -300,7 +300,7 @@ const Body = (props) => {
               OUR <span>CLIENTS</span>
             </h1>
 
-            <div className="Client-Cards">
+            <div className="Client-Cards px-5">
               <div className="row gx-4 gy-5 Client-Single-Card">
                 {clients.map((client, index) => (
                   <div className="col-md-4" key={index}>
@@ -328,7 +328,7 @@ const Body = (props) => {
           </div>
         </div>
 
-        <div className="About-CYOL" ref={about}>
+        <div className="About-CYOL px-5" ref={about}>
           <div className="px-lg-5 mx-4 mx-sm-5 Align-Section">
             <h1 className="All-Text text-center Heading-Title">
               <strong>
@@ -359,7 +359,7 @@ const Body = (props) => {
           </div>
         </div>
 
-        <div className="Crop-Management" ref={services}>
+        <div className="Crop-Management px-5" ref={services}>
           <div className="px-lg-5 mx-4 mx-sm-5">
             <h1 className="All-Text text-center px-sm-5">
               FULLY INTEGRATED <span>FARM FIELD</span> AND CROP MANAGEMENT
@@ -367,7 +367,7 @@ const Body = (props) => {
           </div>
         </div>
 
-        <div className="Crop-Management-Cards">
+        <div className="Crop-Management-Cards px-5">
           <div className="px-lg-5 mx-4 mx-sm-5">
             <div className="row gx-4 gy-5">
               {managements.map((management, index) => (
@@ -390,7 +390,7 @@ const Body = (props) => {
           </div>
         </div>
 
-        <div className="Digital-Solutions">
+        <div className="Digital-Solutions px-5">
           <div className="px-lg-5 mx-4 mx-sm-5">
             <h1 className="All-Text text-center Heading-Title">
               COMPLETE <span>DIGITAL SOLUTION</span> FOR EVERY FARM
