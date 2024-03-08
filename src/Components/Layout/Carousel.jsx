@@ -77,10 +77,10 @@ const CarouselSlideItem = ({ pos, idx, activeIdx }) => {
           allowFullScreen
         ></iframe>
       </div>
-      <div className="carousel-slide-item__body">
+      {/* <div className="carousel-slide-item__body">
         <h4>{item.player.title}</h4>
         <p>{item.player.desc}</p>
-      </div>
+      </div> */}
     </li>
   );
 };
