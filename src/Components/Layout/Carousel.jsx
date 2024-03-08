@@ -6,30 +6,30 @@ const slideWidth = 30;
 const _items = [
   {
     player: {
-      title: "Efren Reyes",
-      desc: 'Known as "The Magician", Efren Reyes is well regarded by many professionals as the greatest all around player of all time.',
-      image: "https://www.youtube.com/embed/pKGJimYpTGE?si=sOvszJ1ZkDx8-JTt",
+      title: "CYOL Quality Control",
+      desc: "Test",
+      image: "https://www.youtube.com/embed/Xj_tCb1WdAQ?si=ErfuHjWuNKdGcs5s",
     },
   },
   {
     player: {
-      title: "Ronnie O'Sullivan",
-      desc: "Ronald Antonio O'Sullivan is a six-time world champion and is the most successful player in the history of snooker.",
-      image: "https://www.youtube.com/embed/Xj_tCb1WdAQ?si=vIkWCCmf193cznJ0",
+      title: "Empowering Contract Farming with CYOL",
+      desc: "Test",
+      image: "https://www.youtube.com/embed/pKGJimYpTGE?si=D7c5oEEr-yzWmqP7",
     },
   },
   {
     player: {
-      title: "Shane Van Boening",
-      desc: 'The "South Dakota Kid" is hearing-impaired and uses a hearing aid, but it has not limited his ability.',
-      image: "https://www.youtube.com/embed/9aF3PCj-XJM?si=04t3C0RmREZ6XHS1",
+      title: "Project Management Enhancements",
+      desc: "Test",
+      image: "https://www.youtube.com/embed/YZS6QuJqScs?si=g00QlXc3pKRWFT2Q",
     },
   },
   {
     player: {
-      title: "Mike Sigel",
-      desc: 'Mike Sigel or "Captain Hook" as many like to call him is an American professional pool player with over 108 tournament wins.',
-      image: "https://www.youtube.com/embed/9aF3PCj-XJM?si=04t3C0RmREZ6XHS1",
+      title: "Introduction to SAP Business One",
+      desc: "Test",
+      image: "https://www.youtube.com/embed/UOi7NaS1h1Y?si=AvcFUrWWDgIADOuK",
     },
   },
 ];
@@ -52,7 +52,7 @@ const createItem = (position, idx) => {
   switch (position) {
     case length - 1:
     case length + 1:
-      item.styles = { ...item.styles, filter: "grayscale(1)" };
+      item.styles = { ...item.styles };
       break;
     case length:
       break;
@@ -67,20 +67,22 @@ const createItem = (position, idx) => {
 const CarouselSlideItem = ({ pos, idx, activeIdx }) => {
   const item = createItem(pos, idx, activeIdx);
 
+  // Extract video ID from YouTube URL
+  const videoId = item.player.image
+    .split("https://www.youtube.com/embed/")[1]
+    .split("?")[0];
+
   return (
     <li className="carousel__slide-item" style={item.styles}>
       <div className="carousel__slide-item-img-link">
+        <div className="video_overlay"></div>
         <iframe
-          src={item.player.image}
+          src={`https://www.youtube.com/embed/${videoId}`}
           title={item.player.title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
       </div>
-      {/* <div className="carousel-slide-item__body">
-        <h4>{item.player.title}</h4>
-        <p>{item.player.desc}</p>
-      </div> */}
     </li>
   );
 };

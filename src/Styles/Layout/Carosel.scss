@@ -36,7 +36,7 @@ a {
   margin-top: 0;
   align-items: center;
   display: flex;
- 
+
   justify-content: center;
   position: relative;
   width: 100%;
@@ -45,7 +45,7 @@ a {
 }
 
 .carousel__inner {
-  height: 40rem;
+  height: 30rem;
   position: relative;
   width: calc(#{$slide-width * 3});
 }
@@ -132,7 +132,7 @@ a {
 }
 
 .carousel__btn-arrow {
-  border: solid black;
+  border: solid #007d50;
   border-width: 0 0.4rem 0.4rem 0;
   height: 6rem;
   padding: 3px;
@@ -156,7 +156,7 @@ a {
   transform: translateX(-50%);
 
   .dot {
-    background: #ccc;
+    background: #000;
     border: 0;
     border-radius: 50%;
     cursor: pointer;
@@ -167,7 +167,27 @@ a {
     width: 2rem;
 
     &.active {
-      background: black;
+      background: #007d50;
     }
   }
+}
+
+.video_overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: #000;
+  opacity: 0.2;
+  pointer-events: none;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  $slide-count: 1;
+  $slide-width: 100%;
 }

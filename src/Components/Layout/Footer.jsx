@@ -16,7 +16,15 @@ const Footer = (props) => {
               <br></br>WEST FOOTSCRAY VIC 3012
             </p>
             <p>
-              <i class="bi bi-envelope-at-fill"></i>info@Digitustecglobal.com
+              <i class="bi bi-envelope-at-fill"></i>
+              <a href="mailto:info@digitustecglobal.com">
+                info@digitustecglobal.com
+              </a>
+            </p>
+            <p>
+              <i class="bi bi-telephone"></i>
+              <a href="tel:+94771510709"> +94 (771) 510 709</a>{" "}
+              <a href="tel:+94772268415"> +94 (772) 268 415</a>
             </p>
           </div>
 
