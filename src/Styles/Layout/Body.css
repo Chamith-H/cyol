@@ -26,7 +26,7 @@
 }
 
 .All-Text {
-  font-size: 35px;
+  font-size: 30px;
   font-family: "RobotoHead";
   color: rgb(0, 0, 0);
 }
@@ -321,6 +321,11 @@
 
 .Video-Row {
   display: flex;
+}
+
+.Video-Links {
+  overflow-x: hidden;
+  padding-bottom: 100px;
 }
 
 @media only screen and (min-width: 0px) and (max-width: 576px) {

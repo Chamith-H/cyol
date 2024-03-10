@@ -13,23 +13,33 @@ const Footer = (props) => {
           <div className="col-md-9 col-lg-7 Footer-Address">
             <p>
               <i class="bi bi-geo-alt-fill"></i>U102, 46 GRAINGERS ROAD,{" "}
-              <br></br>WEST FOOTSCRAY VIC 3012
+              <br></br>WEST FOOTSCRAY VIC 3012,
+              <br></br>
+              Australia
+              <br></br>
+              <br></br>
+              61, Kynsey Road, Colombo 08
+              <br></br>
+              Sri Lanka
             </p>
             <p>
-              <i class="bi bi-envelope-at-fill"></i>
-              <a href="mailto:info@digitustecglobal.com">
-                info@digitustecglobal.com
+              <i class="bi bi-envelope-at-fill mt-5 mt-md-0"></i>
+              <a href="mailto:info@thecyol.com">info@thecyol.com</a>
+
+              <i class="bi bi-linkedin custom-size mt-5 mt-md-3"></i>
+              <a href="https://www.linkedin.com/company/thecyol/">
+                www.linkedin.com/company/thecyol
               </a>
             </p>
             <p>
-              <i class="bi bi-telephone"></i>
+              <i class="bi bi-telephone mt-5 mt-md-0"></i>
               <a href="tel:+94771510709"> +94 (771) 510 709</a>{" "}
-              <a href="tel:+94772268415"> +94 (772) 268 415</a>
+              <a href="tel:+94773131313"> +94 (773) 131 313</a>
             </p>
           </div>
 
           <div className="col-md-3 col-lg-2 Navigation-Footer d-flex flex-column align-items-center align-items-md-end">
-            <h5>Quick Links</h5>
+            <h5 className="mt-5 mt-md-1">Quick Links</h5>
             <p type="button" onClick={() => props.scroll_Wanted("services")}>
               Services
             </p>

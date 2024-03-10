@@ -420,7 +420,7 @@ const Body = (props) => {
             </h1>
           </div>
 
-          <div className="Video-Links pb-4">
+          <div className="Video-Links">
             <Carousel />
           </div>
         </div>
